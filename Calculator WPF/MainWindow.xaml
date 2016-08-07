@@ -55,43 +55,41 @@
     </Window.DataContext>
     <StackPanel Orientation="Vertical" Background="#000" Margin="0,0,0,-31">
         
-        <TextBlock x:Name="mathOperationTextBox" Foreground="#fff"
-                   Text="{Binding Operation}" TextAlignment="Right"
-                   Height="50" FontSize="46" Margin="5,5,5,0"/>
+        <TextBlock Foreground="#999" Text="{Binding FirstArgument}" TextAlignment="Right"
+                   Height="50" FontSize="36" Margin="5,5,5,0"/>
         
-        <TextBlock x:Name="displayTextBox" Foreground="#fff"
-                   Text="{Binding Number}" TextAlignment="Right"
+        <TextBlock Foreground="#fff" Text="{Binding Number}" TextAlignment="Right"
                    Height="50" FontSize="46" Margin="5"/>
 
         <StackPanel Orientation="Horizontal" Margin="5,5,0,0" HorizontalAlignment="Left" Width="257">
             <Button Content="C" Style="{StaticResource darkGrayBtn}" Command="{Binding Erase}"/>
-            <Button Content="+/-" Style="{StaticResource darkGrayBtn}"/>
-            <Button Content="%" Style="{StaticResource darkGrayBtn}"/>
-            <Button Content="÷" Style="{StaticResource orangeBtn}"/>
+            <Button Content="+/-" Style="{StaticResource darkGrayBtn}" Command="{Binding ChangeSign}"/>
+            <Button Content="%" Style="{StaticResource darkGrayBtn}" Command="{Binding PercentBtnClick}"/>
+            <Button Content="÷" Style="{StaticResource orangeBtn}" Command="{Binding Operation}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0" HorizontalAlignment="Left" Width="257">
             <Button Content="7" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             <Button Content="8" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             <Button Content="9" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
-            <Button Content="×" Style="{StaticResource orangeBtn}"/>
+            <Button Content="×" Style="{StaticResource orangeBtn}" Command="{Binding Operation}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
             <Button Content="4" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             <Button Content="5" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             <Button Content="6" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
-            <Button Content="-" Style="{StaticResource orangeBtn}"/>
+            <Button Content="-" Style="{StaticResource orangeBtn}" Command="{Binding Operation}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
             <Button Content="1" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             <Button Content="2" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
             <Button Content="3" Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
-            <Button Content="+" Style="{StaticResource orangeBtn}"/>
+            <Button Content="+" Style="{StaticResource orangeBtn}" Command="{Binding Operation}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
             <Button Content="0" Style="{StaticResource defaultBtn}"
                     Width="122" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
-            <Button Content="." Style="{StaticResource defaultBtn}"/>
-            <Button Content="=" Style="{StaticResource orangeBtn}"/>
+            <Button Content="," Style="{StaticResource defaultBtn}" Command="{Binding ClickNumberButton}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"/>
+            <Button Content="=" Style="{StaticResource orangeBtn}" Command="{Binding EqualOperation}"/>
         </StackPanel>
 
     </StackPanel>
